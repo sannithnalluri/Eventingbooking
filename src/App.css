@@ -1,38 +1,995 @@
-.App {
-  text-align: center;
+/* ==========================================================================
+   1. CORE RESET & VARIABLES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-dark: #05010d;
+  --card-bg: #0b0618;
+  --text-primary: #ffffff;
+  --text-muted: #7c7789;
+  --neon-purple: #bd00ff;
+  --neon-cyan: #00f0ff;
+  --gradient-text: linear-gradient(90deg, #ff17bd 0%, #8b26ff 50%, #00f0ff 100%);
+  --gradient-btn: linear-gradient(135deg, #a100ff 0%, #6100ff 100%);
 }
 
-.App-logo {
-  height: 40vmin;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base Wrapper to contain everything like the original screen */
+.app-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+
+
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 0 6rem 0;
+  position: relative;
+}
+
+.hero-left {
+  flex: 1;
+  max-width: 50%;
+  z-index: 2;
+}
+
+.hero-tag {
+  background: rgba(189, 0, 255, 0.08);
+  border: 1px solid rgba(189, 0, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #d66fff;
+  margin-bottom: 2rem;
+}
+
+.hero-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -2px;
+  margin-bottom: 1.5rem;
+}
+
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  max-width: 85%;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4.5rem;
+}
+
+.btn-primary {
+  background: var(--gradient-btn);
+  border: none;
+  color: white;
+  padding: 1rem 2.2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 10px 25px rgba(97, 0, 255, 0.3);
+  transition: box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 12px 30px rgba(161, 0, 255, 0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.play-icon {
+  background: rgba(255, 255, 255, 0.05);
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Hero Analytics Counter Metrics */
+.hero-stats {
+  display: flex;
+  gap: 3.5rem;
+}
+
+.stat-item h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+  letter-spacing: -1px;
+}
+
+.stat-item p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   4. HERO RIGHT & BACKGROUND AMBIENT GLOW LINES
+   ========================================================================== */
+.hero-right {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  width: 560px;
+  height: 420px;
+}
+
+.hero-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 40px;
+  /* Soft smooth fade blending layout back into dark theme space */
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+}
+
+/* Neon Dynamic Wave Stream Vectors (Simulated via CSS gradients) */
+.glow-overlay-lines {
+  position: absolute;
+  top: -10%;
+  left: -20%;
+  width: 140%;
+  height: 120%;
   pointer-events: none;
+  background: 
+    radial-gradient(circle at 80% 20%, rgba(0, 240, 255, 0.15), transparent 45%),
+    radial-gradient(circle at 30% 80%, rgba(189, 0, 255, 0.2), transparent 50%);
+  z-index: -1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Floating overlay card */
+.floating-live-card {
+  position: absolute;
+  right: -25px;
+  bottom: 80px;
+  background: rgba(11, 6, 24, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 1.2rem;
+  width: 210px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.live-badge {
+  font-size: 0.75rem;
+  color: var(--neon-cyan);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.floating-live-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.floating-live-card p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.attendees {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar-group {
+  display: flex;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  background: #3a3545;
+  border-radius: 50%;
+  border: 2px solid var(--card-bg);
+  margin-right: -8px;
+}
+
+.avatar:nth-child(1) { background-color: #5b546e; }
+.avatar:nth-child(2) { background-color: #786f91; }
+.avatar:nth-child(3) { background-color: #978cb3; }
+
+.attendee-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   5. TOP EVENTS SECTION & GRID LISTS
+   ========================================================================== */
+.top-events-section {
+  padding-bottom: 5rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-title-left {
+  display: flex;
+  align-items: center;
+}
+
+.section-title-left h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-left: 0.8rem;
+  letter-spacing: -1px;
+}
+
+.btn-view-all {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #d66fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-left: 2rem;
+  transition: background 0.2s;
+}
+
+.btn-view-all:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.slider-arrows {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.arrow-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  transition: background 0.2s;
+}
+
+.arrow-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Event Dashboard Grid Layout */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.event-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: transform 0.3s standard, border-color 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(189, 0, 255, 0.2);
+}
+
+.card-image-wrapper {
+  position: relative;
+  height: 200px;
+  width: 100%;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-date-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(11, 6, 24, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.5rem;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 45px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.card-action-row button {
+  background: #d66fff;
+  border: none;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+}
+.date-day {
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.date-month {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-category {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-location {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 1rem;
+}
+
+.card-price {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ff26b9;
+}
+
+.like-btn {
+  background: transparent;
+  border: none;
+  color: #3a3545;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: color 0.2s;
+}
+
+.like-btn:hover {
+  color: #ff26b9;
+}
+
+/* Pagination Sliders indicator dots */
+.slider-dots {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 3.5rem;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: var(--neon-purple);
+  width: 22px;
+  border-radius: 4px;
+}
+
+/* Update this selector to drop the structural transform layout property */
+.event-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
+  overflow: hidden;
+  /* border transition left intact, removed transform */
+  transition: border-color 0.3s; 
+}
+
+/* Delete or comment out the old pure CSS hover handler completely */
+/* .event-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(189, 0, 255, 0.2);
+} 
+*/
+
+/* Add explicit active color handling updates for likes toggles */
+.like-btn:hover {
+  color: #ff26b9;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   6. HORIZONTAL STATS METRICS BAR
+   ========================================================================== */
+.stats-bar-container {
+  background: rgba(11, 6, 24, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
+  padding: 1.8rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4rem 0 2rem 0;
+  backdrop-filter: blur(10px);
+}
+
+.stats-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.stats-bar-item:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stats-icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: 1px solid transparent;
+}
+
+/* Precise Accent Glow Rings for Icons */
+.stats-icon-circle.pink    { background: rgba(255, 23, 189, 0.06); border-color: rgba(255, 23, 189, 0.2); text-shadow: 0 0 8px #ff17bd; }
+.stats-icon-circle.purple  { background: rgba(139, 38, 255, 0.06); border-color: rgba(139, 38, 255, 0.2); text-shadow: 0 0 8px #8b26ff; }
+.stats-icon-circle.blue    { background: rgba(0, 240, 255, 0.06); border-color: rgba(0, 240, 255, 0.2); text-shadow: 0 0 8px #00f0ff; }
+.stats-icon-circle.orange  { background: rgba(255, 138, 0, 0.06); border-color: rgba(255, 138, 0, 0.2); text-shadow: 0 0 8px #ff8a00; }
+.stats-icon-circle.magenta { background: rgba(214, 111, 255, 0.06); border-color: rgba(214, 111, 255, 0.2); text-shadow: 0 0 8px #d66fff; }
+.stats-icon-circle.cyan    { background: rgba(0, 255, 163, 0.06); border-color: rgba(0, 255, 163, 0.2); text-shadow: 0 0 8px #00ffa3; }
+
+.stats-bar-text h4 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.stats-bar-text p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   7. FEATURES GRID & CTA LAYOUT SECTION
+   ========================================================================== */
+.features-cta-grid {
+  display: grid;
+  grid-template-columns: 4.5fr 7.5fr;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+/* Left Board Panel: Why Join Element */
+.why-join-card {
+  background: linear-gradient(145deg, #0d071f 0%, #06020f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 28px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-join-glow-line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(139, 38, 255, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.card-heading {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+.purple-text {
+  color: #c75eff;
+}
+
+.features-subgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-icon {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  display: inline-block;
+}
+
+.feature-item h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.feature-item p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Right Board Panel: Immersive CTA Banner */
+.cta-banner {
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 3.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.cta-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  /* Dark matching mix profile mask logic */
+  opacity: 0.45; 
+}
+
+.cta-overlay-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #05010d 30%, rgba(11, 6, 24, 0.4) 100%);
+  z-index: -1;
+}
+
+.cta-content {
+  max-width: 65%;
+}
+
+.cta-content h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-bottom: 0.8rem;
+}
+
+.gradient-glow-text {
+  background: linear-gradient(90deg, #b5179e, #7209b7, #4cc9f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.cta-content p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.btn-cta-explore {
+  background: linear-gradient(90deg, #ff00a0 0%, #7a00ff 100%);
+  border: none;
   color: white;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.cta-link-video {
+  color: #d66fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.8;
+  transition: opacity 0.2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cta-link-video:hover {
+  opacity: 1;
+}
+
+
+
+/* ==========================================================================
+   8. NEWSLETTER TOP BANNER
+   ========================================================================== */
+.footer-section {
+  padding: 4rem 0 3rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.newsletter-card {
+  background: linear-gradient(95deg, rgba(17, 10, 36, 0.6) 0%, rgba(7, 3, 18, 0.6) 100%);
+  border: 1px solid rgba(189, 0, 255, 0.1);
+  border-radius: 24px;
+  padding: 2.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4.5rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.newsletter-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 55%;
+}
+
+.newsletter-icon-wrapper {
+  background: rgba(139, 38, 255, 0.1);
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  border: 1px solid rgba(139, 38, 255, 0.2);
+}
+
+.newsletter-text h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.3px;
+}
+
+.newsletter-text p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.newsletter-right {
+  width: 40%;
+}
+
+.newsletter-input-group {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 30px;
+  padding: 0.4rem 0.4rem 0.4rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newsletter-input-group input {
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  font-size: 0.9rem;
+  width: 65%;
+}
+
+.newsletter-input-group input::placeholder {
+  color: #4a4458;
+}
+
+.btn-subscribe {
+  background: linear-gradient(90deg, #6100ff 0%, #bd00ff 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.8rem;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   9. FOOTER LINKS GRID SECTION
+   ========================================================================== */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 3.2fr 1.5fr 1.5fr 1.5fr 2.5fr 2.3fr;
+  gap: 2.5rem;
+}
+
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.logo-star {
+  color: #bd00ff;
+}
+
+.footer-tagline {
+  color: #bd00ff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.brand-description {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.social-links-row {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.social-circle-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+/* Navigation List Columns */
+.footer-links-col h4,
+.footer-apps-col h4,
+.footer-contact-col h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.2px;
+}
+
+.footer-links-col ul {
+  list-style: none;
+}
+
+.footer-links-col ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links-col ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.footer-links-col ul li a:hover {
+  color: var(--text-primary);
+}
+
+/* Store Badge Styles */
+.footer-apps-col p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 1.2rem;
+}
+
+.store-badges-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.store-badge {
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: white;
+  width: fit-content;
+  min-width: 150px;
+}
+
+.badge-icon {
+  font-size: 1.4rem;
+}
+
+.badge-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-sub {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.badge-main {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 0.1rem;
+}
+
+/* Contact Column Styles */
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.contact-item.align-top {
+  align-items: flex-start;
+}
+
+.contact-icon {
+  font-size: 1rem;
+  color: #bd00ff;
+  opacity: 0.8;
 }

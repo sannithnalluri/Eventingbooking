@@ -1,0 +1,136 @@
+.adm-page-header {
+  margin-bottom: 3rem;
+}
+
+.adm-meta-pill {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #bd00ff;
+  background: rgba(189, 0, 255, 0.08);
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.adm-page-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.adm-page-header p {
+  color: #7c7789;
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+}
+
+/* Cards Metric Layout Engine configuration */
+.adm-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.adm-metric-card-block {
+  background: #0b0618;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.adm-card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.adm-card-title-lbl {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  color: #7c7789;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.adm-card-emoji-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.adm-card-emoji-box.cyan { background: rgba(0, 240, 255, 0.08); }
+.adm-card-emoji-box.purple { background: rgba(139, 38, 255, 0.08); }
+.adm-card-emoji-box.pink { background: rgba(255, 23, 189, 0.08); }
+
+.adm-metric-card-block h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.4rem;
+}
+
+.adm-card-sub-lbl {
+  font-size: 0.8rem;
+  color: #00ffa3;
+  font-weight: 600;
+}
+
+/* Infrastructure Banner Pass element */
+.adm-status-banner-card {
+  background: rgba(11, 6, 24, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.adm-status-left {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.adm-pulse-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #00ffa3;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ffa3;
+  animation: pulseGrad 2s infinite ease-in-out;
+}
+
+@keyframes pulseGrad {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.adm-status-left h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.adm-status-left p {
+  font-size: 0.82rem;
+  color: #7c7789;
+  margin-top: 0.15rem;
+}
+
+.adm-pill-verified {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #00ffa3;
+  background: rgba(0, 255, 163, 0.06);
+  border: 1px solid rgba(0, 255, 163, 0.15);
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+}

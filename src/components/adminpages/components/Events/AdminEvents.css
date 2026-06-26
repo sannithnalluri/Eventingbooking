@@ -1,0 +1,113 @@
+.adm-header-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.adm-header-action-row h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.btn-adm-primary-add {
+  background: linear-gradient(90deg, #6100ff 0%, #bd00ff 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.8rem 1.6rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(112, 0, 255, 0.2);
+}
+
+/* Core Relational Grid Component Data Tables */
+.adm-table-responsive-box {
+  background: #0b0618;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.adm-data-table-element {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.adm-data-table-element th {
+  background: rgba(255, 255, 255, 0.01);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 1.2rem 1.5rem;
+  color: #7c7789;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.adm-data-table-element tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  transition: background 0.2s;
+}
+
+.adm-data-table-element tr:hover {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.adm-data-table-element td {
+  padding: 1.2rem 1.5rem;
+  vertical-align: middle;
+}
+
+.lbl-id {
+  font-family: monospace;
+  color: #7c7789;
+  font-size: 0.85rem;
+}
+
+.lbl-title {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.lbl-category {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.lbl-sales {
+  font-weight: 500;
+}
+
+.lbl-revenue {
+  font-weight: 700;
+  color: #00f0ff;
+}
+
+/* Operational Conditional Status Pillars */
+.adm-status-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.adm-status-tag.active {
+  background: rgba(0, 255, 163, 0.06);
+  border: 1px solid rgba(0, 255, 163, 0.15);
+  color: #00ffa3;
+}
+
+.adm-status-tag.sold-out {
+  background: rgba(255, 74, 74, 0.06);
+  border: 1px solid rgba(255, 74, 74, 0.15);
+  color: #ff4a4a;
+}

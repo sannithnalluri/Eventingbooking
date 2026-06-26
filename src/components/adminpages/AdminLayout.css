@@ -1,0 +1,26 @@
+.adm-layout-shell {
+  display: flex;
+  background-color: #05010d;
+  min-height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.adm-main-viewport {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  background: radial-gradient(circle at 80% 20%, rgba(139, 38, 255, 0.03), transparent 50%), #05010d;
+}
+
+.adm-viewport-container {
+  padding: 3rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}

@@ -1,0 +1,158 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  /* Added to prevent layout shifting on scroll or smaller screens */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  letter-spacing: -0.5px;
+  /* Ensure logo is a clickable link without losing layout styling */
+  text-decoration: none; 
+}
+
+.logo-icon {
+  color: #bd00ff;
+  font-size: 1.8rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none; /* Added in case you are using <ul> and <li> tags */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  color: var(--text-muted, #8a8a8a); /* Added fallback color */
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative; /* Moved here so the transition doesn't jump */
+  padding: 0.5rem 0; /* Added padding to make the click target larger */
+}
+
+/* Combined for cleaner code and added fallback for --text-primary */
+.nav-links a.active, 
+.nav-links a:hover {
+  color: var(--text-primary, #ffffff); 
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; /* Adjusted from -8px to keep it inside the padding boundary */
+  left: 0;   /* Changed from 35% to 0 for a smoother full-width underline */
+  width: 100%; /* Changed from 30% to 100% */
+  height: 2px;
+  background-color: var(--neon-purple, #bd00ff); /* Added fallback color */
+  border-radius: 2px;
+  /* Added transitions so the active bar smoothly fades or slides in */
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+/* Triggers the underline animation on hover and active states */
+.nav-links a.active::after,
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.search-box {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  padding: 0.6rem 1.2rem;
+  width: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 0.3s ease;
+}
+
+/* Added focus-within so the box highlights when typing */
+.search-box:focus-within {
+  border-color: var(--neon-purple, #bd00ff);
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  color: var(--text-primary, #ffffff);
+  outline: none;
+  font-size: 0.85rem;
+  width: 90%;
+}
+
+.search-box input::placeholder {
+  color: #4a4458;
+}
+
+.search-icon {
+  font-size: 0.9rem;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.theme-toggle {
+  width: 42px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-thumb {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  /* Changed from 'right: 3px' to 'left' so you can animate it with JS toggling a class */
+  left: 3px; 
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Class to append via JavaScript when Dark/Light mode switches */
+.theme-toggle.active .toggle-thumb {
+  transform: translateX(20px);
+}
+
+.btn-signin {
+  background: #6100ff;
+  border: none;
+  color: white;
+  padding: 0.7rem 1.8rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-signin:hover {
+  transform: scale(1.03);
+  background: #731cff; /* Added subtle color change on hover */
+}
+
+.btn-signin:active {
+  transform: scale(0.98); /* Slight click effect */
+}

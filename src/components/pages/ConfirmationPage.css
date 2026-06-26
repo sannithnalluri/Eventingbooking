@@ -1,0 +1,158 @@
+.confirm-page-container {
+  max-width: 850px;
+  margin: 5rem auto;
+  text-align: center;
+  color: white;
+}
+
+.success-announcement-header {
+  margin-bottom: 3.5rem;
+}
+
+.success-checkmark-circle {
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 255, 163, 0.1);
+  border: 2px solid #00ffa3;
+  color: #00ffa3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0 auto 1.5rem auto;
+}
+
+.success-announcement-header h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; }
+.success-announcement-header p { color: #7c7789; font-size: 0.95rem; max-width: 60%; margin: 0 auto; line-height: 1.5; }
+
+/* --- CONCERT RETRO HOLES STUB TICKET SHAPE MATRIX --- */
+.digital-ticket-stub {
+  display: grid;
+  grid-template-columns: 7.5fr 4.5fr;
+  width: 100%;
+  height: 280px;
+  background: #0b0618;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.ticket-visual-brand-side {
+  padding: 2.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  background: linear-gradient(135deg, #18093d 0%, #05010d 100%);
+  border-right: 2px dashed rgba(255, 255, 255, 0.08);
+}
+
+.ticket-glowing-curtain-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 10% 10%, rgba(189, 0, 255, 0.15), transparent 60%);
+  pointer-events: none;
+}
+
+.live-pill-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #bd00ff;
+  border: 1px solid rgba(189, 0, 255, 0.3);
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+}
+
+.ticket-brand-meta h2 { font-size: 1.8rem; font-weight: 800; margin: 1rem 0 0.3rem 0; letter-spacing: -0.5px; }
+.ticket-loc { font-size: 0.85rem; color: #7c7789; font-weight: 500; }
+
+.ticket-date-huge h3 { font-size: 2.4rem; font-weight: 900; line-height: 1; color: #ff007a; }
+.ticket-date-huge p { font-size: 0.8rem; font-weight: 700; color: white; letter-spacing: 0.5px; text-transform: uppercase; }
+
+/* Right Ticket verification column stub elements */
+.ticket-verification-bar-side {
+  background: #0f0922;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Semi circle physical card cut punches */
+.ticket-stub-notch {
+  width: 24px;
+  height: 24px;
+  background: #05010d; /* Matches the background wrapper page */
+  border-radius: 50%;
+  position: absolute;
+  left: -12px;
+}
+.ticket-stub-notch.top { top: -12px; border-bottom: 1px solid rgba(255, 255, 255, 0.04); }
+.ticket-stub-notch.bottom { bottom: -12px; border-top: 1px solid rgba(255, 255, 255, 0.04); }
+
+/* QR Grid lines pattern simulation */
+.mock-qr-code {
+  width: 110px;
+  height: 110px;
+  background: white;
+  border-radius: 12px;
+  padding: 0.8rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-corner-box {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 4px solid #000;
+}
+.qr-corner-box.top-left { top: 12px; left: 12px; }
+.qr-corner-box.top-right { top: 12px; right: 12px; }
+.qr-corner-box.bottom-left { bottom: 12px; left: 12px; }
+
+.qr-inner-matrix-dots {
+  width: 40px;
+  height: 40px;
+  border: 3px dashed #000;
+  opacity: 0.75;
+}
+
+.booking-meta-id, .ticket-holder-meta { text-align: center; }
+.booking-meta-id .label, .ticket-holder-meta .label { font-size: 0.65rem; color: #7c7789; display: block; font-weight: 600; margin-bottom: 0.15rem; }
+.booking-meta-id .value-id { font-size: 0.95rem; font-weight: 800; color: #00ffa3; }
+.ticket-holder-meta .value { font-size: 0.85rem; font-weight: 700; color: white; }
+
+.action-return-footer {
+  margin-top: 3.5rem;
+}
+
+.btn-back-dashboard {
+  color: #d66fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid rgba(214, 111, 255, 0.2);
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  background: rgba(214, 111, 255, 0.02);
+  transition: all 0.2s;
+}
+
+.btn-back-dashboard:hover {
+  background: rgba(214, 111, 255, 0.08);
+  border-color: #d66fff;
+}

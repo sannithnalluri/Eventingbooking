@@ -1,0 +1,25 @@
+/* Reusing core frame properties while adapting parameters explicitly */
+@import url('./Login.css');
+
+.auth-checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 0.2rem;
+  user-select: none;
+}
+
+.auth-checkbox-row input[type="checkbox"] {
+  accent-color: #bd00ff;
+  width: 15px;
+  height: 15px;
+  margin-top: 0.15rem;
+  cursor: pointer;
+}
+
+.auth-checkbox-row label {
+  font-size: 0.8rem;
+  color: #7c7789;
+  line-height: 1.4;
+  cursor: pointer;
+}

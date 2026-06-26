@@ -1,0 +1,414 @@
+/* ==========================================================================
+   EVENT BOOKING PAGE SPECIFIC COMPLEX MATRIX LAYOUT
+   ========================================================================== */
+
+.booking-page-wrapper {
+  color: #ffffff;
+  padding-top: 1rem;
+}
+
+/* Breadcrumbs tracking trail bar indicator */
+.breadcrumb-bar {
+  font-size: 0.85rem;
+  color: #7c7789;
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.breadcrumb-bar span {
+  color: #4a4458;
+}
+
+.breadcrumb-bar span.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Layout Structural System Configuration split */
+.booking-layout-grid {
+  display: grid;
+  grid-template-columns: 7.8fr 4.2fr;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+/* LEFT COLUMN PRESENTATION LAYOUT */
+.main-media-frame {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.video-thumbnail-placeholder {
+  width: 100%;
+  height: 440px;
+  background: linear-gradient(135deg, #1b073a 0%, #05010d 100%);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.play-button-ring {
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.media-thumbnail-strip {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.media-thumbnail-strip .thumb {
+  flex: 1;
+  height: 85px;
+  background: #120b24;
+  border-radius: 12px;
+  border: 2px solid transparent;
+}
+
+.media-thumbnail-strip .thumb.active {
+  border-color: #bd00ff;
+}
+
+/* Sub Anchors Segment Bar Header Tabs Grid mapping */
+.navigation-tabs-row {
+  display: flex;
+  gap: 1.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.tab-item {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #7c7789;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #ffffff;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -17px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #bd00ff;
+}
+
+/* Info Dashboard Modular Details Blocks Split Grid */
+.info-cards-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.description-card-block,
+.highlights-card-block {
+  background: #0b0618;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.description-card-block h3,
+.highlights-card-block h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+}
+
+.description-card-block p {
+  font-size: 0.88rem;
+  color: #7c7789;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.perks-bullet-grid,
+.highlights-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 0.5rem;
+}
+
+.highlights-list {
+  grid-template-columns: 1fr;
+}
+
+.perks-bullet-grid li,
+.highlights-list li {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Performers Artist Avatar Profiles Styles */
+.performers-carousel-section {
+  margin-bottom: 3rem;
+}
+
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.carousel-header h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.link-view-artists {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #d66fff;
+  cursor: pointer;
+}
+
+.artists-profile-flex {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.artist-avatar-card {
+  background: #0b0618;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  flex: 1;
+  text-align: center;
+}
+
+.avatar-circle-frame {
+  width: 75px;
+  height: 75px;
+  background: #23193a;
+  border-radius: 50%;
+  margin: 0 auto 1rem auto;
+  border: 2px solid rgba(189, 0, 255, 0.2);
+}
+
+.artist-avatar-card h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.artist-avatar-card h5 span {
+  color: #00d1ff;
+}
+
+.artist-avatar-card p {
+  font-size: 0.78rem;
+  color: #7c7789;
+}
+
+/* Bottom alert strip */
+.urgency-alert-bar {
+  background: rgba(255, 23, 189, 0.04);
+  border: 1px solid rgba(255, 23, 189, 0.15);
+  border-radius: 16px;
+  padding: 1.2rem 2rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN TICKET SELECTION ENGINE PANEL STYLING
+   ========================================================================== */
+.sticky-ticket-panel-card {
+  background: linear-gradient(150deg, #100824 0%, #06020f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 28px;
+  padding: 2rem;
+  position: sticky;
+  top: 30px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.panel-ticket-tier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.fire-tag {
+  background: rgba(255, 138, 0, 0.1);
+  border: 1px solid rgba(255, 138, 0, 0.3);
+  color: #ff8a00;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+
+.limit-offer-text {
+  font-size: 0.8rem;
+  color: #7c7789;
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+/* Standalone Countdown Blocks */
+.countdown-display-block {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.time-unit {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 0.4rem;
+  min-width: 40px;
+  text-align: center;
+}
+
+.time-unit span {
+  font-size: 0.95rem;
+  font-weight: 800;
+  display: block;
+  line-height: 1;
+}
+
+.time-unit p {
+  font-size: 0.55rem;
+  color: #7c7789;
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Pricing Row details styles */
+.panel-pricing-matrix {
+  margin-bottom: 2rem;
+}
+
+.label-start-from {
+  font-size: 0.85rem;
+  color: #7c7789;
+  font-weight: 500;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0.4rem 0;
+}
+
+.price-row h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.crossed-original-price {
+  font-size: 1.2rem;
+  color: #4a4458;
+  text-decoration: line-through;
+  font-weight: 600;
+}
+
+.discount-pill-tag {
+  background: rgba(0, 255, 163, 0.1);
+  color: #00ffa3;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+.tax-notice-text {
+  font-size: 0.8rem;
+  color: #00ffa3;
+  font-weight: 500;
+}
+
+/* CTA Purchase Engine Trigger Action */
+.btn-main-booking-action {
+  width: 100%;
+  background: linear-gradient(90deg, #ff007a 0%, #7000ff 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 18px;
+  padding: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 15px 30px rgba(112, 0, 255, 0.25);
+  margin-bottom: 1.2rem;
+}
+
+.live-social-proof-alert {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  font-size: 0.82rem;
+  text-align: center;
+  color: #7c7789;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  margin-bottom: 2rem;
+}
+
+.live-social-proof-alert strong {
+  color: #ff8a00;
+}
+
+/* Security Trust checklist columns verification line elements */
+.trust-assurances-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1.5rem;
+}
+
+.assurance-row-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-shield {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.item-text h6 {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.item-text p {
+  font-size: 0.78rem;
+  color: #7c7789;
+  margin-top: 0.1rem;
+}
